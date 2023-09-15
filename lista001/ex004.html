@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex004</title>
+</head>
+<body>
+
+    <label for="iNota1">Nota 1:</label>
+    <input type="number" id="iNota1">
+    <label for="iNota2">Nota 2:</label>
+    <input type="number" id="iNota2">
+    <input type="button" value="Ver média" onclick="calculaMedia()">
+
+    <label for="iMedia">Média:</label>
+    <output id="iMedia"></output>
+    
+</body>
+
+<script>
+
+    function calculaMedia() {
+        
+        let nota1 = Number(document.getElementById('iNota1').value)
+        let nota2 =Number(document.getElementById('iNota2').value)
+
+        let media = (nota1 + nota2) / 2
+
+        let saida = document.getElementById('iMedia').value = 'A média entre ' + nota1 + ' e ' + nota2 + ' é igual a: ' + media
+    }
+</script>
+</html>

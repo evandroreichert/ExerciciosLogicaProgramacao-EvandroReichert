@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex008</title>
+</head>
+<body>
+
+    <label for="money">Quanto você quer trocar?</label>
+    <input type="number" id="money">
+
+    <input type="button" value="Trocar por dólar" onclick="trocar()">
+
+    <output id="dolar"></output>
+
+</body>
+
+<script>
+    function trocar() {
+        
+        const dolar = 3.45 
+        let carteira = Number(document.getElementById('money').value)
+        let convertido = carteira * dolar
+
+        let saida = document.getElementById('dolar').value = 'Você pode comprar ' + convertido.toLocaleString("EN" ,{style: 'currency', currency: 'USD'}) + ' dólares'
+
+    }
+</script>
+</html>

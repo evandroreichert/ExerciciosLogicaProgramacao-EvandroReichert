@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex006</title>
+</head>
+<body>
+
+    <label for="iN1">Digite um número: </label>
+    <input type="number" id="iN1">
+
+    <input type="button" value="Ver Resultado" onclick="resultado()">
+    <br>
+    
+    <label for="iDobro">Resultado: </label>
+    <br>
+    <output id="iDobro"></output>
+    <br>
+    <output id="iTerço"></output>
+</body>
+
+<script>
+
+    function resultado() {
+        
+        let n1 = Number(document.getElementById('iN1').value)
+
+        let dobro = n1 * 2
+        let terço = n1 / 3 
+
+        let saidaDobro = document.getElementById('iDobro').value = 'O dobro de ' + n1 + ' é ' + dobro
+        
+        let saidaTerço = document.getElementById('iTerço').value = 'O terço de ' + n1 + ' é ' + terço
+    }
+</script>
+</html>

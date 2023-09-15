@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex007</title>
+</head>
+<body>
+
+    <label for="distancia">Digite uma distância em metros:</label>
+    <input type="number" id="distancia" placeholder="Apenas números">    
+    
+    <input type="button" value="Converter" onclick="converter()">
+
+    <br>
+
+    <label for="saida">Resultado: </label> <br>
+    <output id="saida"></output> <br>
+    <output id="km"></output> <br>
+    <output id="hm"></output> <br> 
+    <output id="dam"></output> <br>
+    <output id="dm"></output> <br>
+    <output id="cm"></output> <br>
+    <output id="mm"></output>
+
+</body>
+
+<script>
+
+    function converter() {
+        let distancia = Number(document.getElementById('distancia').value)
+
+        let km = distancia / 1000
+        let hm = distancia / 100
+        let dam = distancia / 10
+        let dm = distancia *  10
+        let cm = distancia * 100
+        let mm = distancia * 1000
+        
+        let saida = document.getElementById('saida').value = 'A distância de ' + distancia + 'm corresponde a:'
+
+        document.getElementById('km').value = km + 'Km'
+        document.getElementById('hm').value = hm + 'Hm'
+        document.getElementById('dam').value = dam + 'Dam'
+        document.getElementById('dm').value = dm + 'dm'
+        document.getElementById('cm').value = cm.toFixed(1)+ 'Cm'
+        document.getElementById('mm').value = mm.toFixed(1) + 'mm'
+
+    }
+</script>
+</html>

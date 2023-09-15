@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex009</title>
+</head>
+<body>
+
+    <h1>Quanta tinta você vai precisar?</h1>
+
+    <label for="iLargura">Largura: </label>
+    <input type="number" id="iLargura">
+
+    <label for="iAltura">Altura: </label>
+    <input type="number" id="iAltura">
+
+    <input type="button" value="Calcular" onclick="calcula()">
+    <br><br>
+
+    <label for="iSaida">Você vai precisar de: </label>
+    <output id="iSaida"></output>
+    
+</body>
+
+<script>
+
+    function calcula() {
+        let largura = Number(document.getElementById('iLargura').value)
+    let altura = Number(document.getElementById('iAltura').value)
+
+    let tinta = (largura * altura) / 2 
+    let resultado = document.getElementById('iSaida').value = tinta + ' litros de tinta'
+    }
+    
+</script>
+</html>

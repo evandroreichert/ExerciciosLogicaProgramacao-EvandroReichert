@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex003</title>
+</head>
+<body>
+
+    <label for="iN1">Digite um valor:</label>
+    <input type="number" id="iN1">
+
+    <label for="iN2">Digite outro valor:</label>
+    <input type="number" id="iN2">
+
+    <input type="button" value="Somar" onclick="soma()">
+
+    <output id="iSaida"></output>
+    
+</body>
+
+<script>
+
+    function soma() {
+        
+        let n1 = Number(document.getElementById('iN1').value)
+        let n2 = Number(document.getElementById('iN2').value)
+
+        let soma = n1 + n2
+
+        let saida = document.getElementById('iSaida').value = 'A soma entre ' + n1 + 'e ' + n2 + ' é igual a: ' + soma
+    }
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex005</title>
+</head>
+<body>
+
+    <label for="iN1">Digite um número:</label>
+    <input type="number" id="iN1">
+
+    <input type="button" value="Ver valor" onclick="verValores()">
+
+    <label for="iSaida1">Valores:</label>
+    <br>
+    <output id="iSaida1"></output>
+    <br>
+    <output id="iSaida2"></output>
+</body>
+
+<script>
+
+    function verValores() {
+    let n1 = Number(document.getElementById('iN1').value)
+
+    let antecessor = n1 - 1
+    let sucessor = n1 + 1 
+    
+    let saida = document.getElementById('iSaida1').value = 'O antecessor de ' + n1 + ' é ' + antecessor
+
+    let saida2 = document.getElementById('iSaida2').value = 'O sucessor de ' + n1 + ' é ' + sucessor
+        
+    }
+    
+</script>
+</html>

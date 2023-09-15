@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex010</title>
+</head>
+<body>
+
+    <h1>PROMOÇÃO 5% DE DESCONTO</h1>
+
+    <label for="iPrice">Insira o preço normal: </label>
+    <input type="number" id="iPrice">
+
+    <input type="button" value="Ver desconto!" onclick="calcDesconto()">
+    <br>
+
+    <output id="saida"></output>
+    
+</body>
+
+<script>
+
+    function calcDesconto() {
+    
+        let price = Number(document.getElementById('iPrice').value)
+        const desconto = price * 0.05
+        let newPrice = price - desconto
+        
+        document.getElementById('saida').value = 'O VALOR PROMOCIONAL É: ' + newPrice.toLocaleString("pt-BR" ,{style: 'currency', currency: 'BRL'})
+    
+    }
+</script>
+</html>
