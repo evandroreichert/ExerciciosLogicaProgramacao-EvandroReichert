@@ -36,7 +36,7 @@
     <form action="">
         <h1>Casa de Câmbio</h1>
         <label for="money">Quanto você quer trocar?</label>
-        <input type="number" id="money">
+        <input type="number" id="money" placeholder="Valor em REAL">
         <input type="button" value="Trocar por dólar" onclick="trocar()">
         <output id="dolar"></output>
     </form>
@@ -50,8 +50,7 @@
         let carteira = Number(document.getElementById('money').value)
         let convertido = carteira / dolar
 
-        let saida = document.getElementById('dolar').value = 'Você pode comprar ' + convertido.toLocaleString("EN" ,{style: 'currency', currency: 'USD'}) + ' dólares'
-
+        let saida = document.getElementById('dolar').value = `Você pode comprar ${convertido.toLocaleString("EN" ,{style: 'currency', currency: 'USD'})}`
     }
 </script>
 </html>
