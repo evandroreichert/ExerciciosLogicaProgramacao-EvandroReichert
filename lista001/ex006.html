@@ -4,20 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex006</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            font-size: 1.1em;
+        }
+
+        body{
+            height: 100vh;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;    
+            height: 80vh;  
+         }
+
+         input{
+            margin: 5px;
+         }
+    </style>
 </head>
 <body>
 
-    <label for="iN1">Digite um número: </label>
-    <input type="number" id="iN1">
-
-    <input type="button" value="Ver Resultado" onclick="resultado()">
-    <br>
-    
-    <label for="iDobro">Resultado: </label>
-    <br>
-    <output id="iDobro"></output>
-    <br>
-    <output id="iTerço"></output>
+    <form action="">
+        <h1>Dobro e Terço</h1>
+        <label for="iN1">Digite um número: </label>
+        <input type="number" id="iN1">
+        <input type="button" value="Ver Resultado" onclick="resultado()">
+        <br>
+        
+        <label for="iDobro">Resultado: </label>
+        <br>
+        <output id="iDobro"></output>
+        <br>
+        <output id="iTerço"></output>
+    </form>
 </body>
 
 <script>

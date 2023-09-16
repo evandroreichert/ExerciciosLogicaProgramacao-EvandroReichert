@@ -4,16 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex002</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            font-size: 1.1em;
+        }
+
+        body{
+            height: 100vh;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;    
+            height: 80vh;  
+         }
+
+         input{
+            margin: 5px;
+         }
+    </style>
 </head>
 <body>
 
-    <label for="iNome">Nome do funcionário:</label>
-    <input type="text" id="iNome">
-    <label for="iSalario">Salário do funcionário:</label>
-    <input type="text" id="iSalario">
-    <input type="button" value="Ver salário" onclick="printSalario()">
-
-    <output id="iSaida"></output>
+    <form action="">
+        <label for="iNome">Nome do funcionário:</label>
+        <input type="text" id="iNome">
+        <label for="iSalario">Salário do funcionário:</label>
+        <input type="text" id="iSalario">
+        <input type="button" value="Ver salário" onclick="printSalario()">
+        <output id="iSaida"></output>
+    </form>
 
     
 </body>
