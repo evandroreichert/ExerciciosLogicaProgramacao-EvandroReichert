@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 004</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <h1>Está entre 30 e 90?</h1>
+
+        <label for="iN1">Insira o Número:</label>
+        <input type="number" id="iN1">
+
+        <input type="button" value="Comparar" onclick="compara()">
+
+        <output id="iOutput"></output>
+
+    </form>
+
+</body>
+
+<script>
+
+
+
+    function compara() {
+
+        let n1 = Number(document.querySelector('#iN1').value)
+        let output = document.querySelector('#iOutput').value
+        
+        if (n1 >= 30 && n1 <= 90) {
+            document.querySelector('#iOutput').value = `${n1} está entre 30 e 90.`
+        }
+
+        else {
+            document.querySelector('#iOutput').value = `${n1} NÃO está entre 30 e 90.`
+        }
+
+
+    }
+
+</script>
+
+</html>
