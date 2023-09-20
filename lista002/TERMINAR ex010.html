@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ex 007</title>
+    <title>Ex 010</title>
     <style>
         * {
             margin: 0;
@@ -70,48 +70,48 @@
 <body>
 
     <form action="">
+        <label for="iUser">Usuário:</label>
+        <input type="text" id="iUser">
 
-        <h1>LEÃO 🦁</h1>
+        <label for="iPassword">Senha:</label>
+        <input type="password" id="iPassword">
 
-        <label for="iN1">Insira o Salário:</label>
-        <input type="number" id="iN1" placeholder="Salário BRUTO">
-
-        <input type="button" value="Descontar INSS" class="btn" onclick="fazoL()">
-
-        <output id="iOutput"></output>
-
+        <input type="button" value="Login" id="iLogin">
     </form>
 
 </body>
 
 <script>
 
+    function login() {
+
+        let userInput = document.getElementById('iUser').value
+        let passwordInput = document.getElementById('iPassword').value
 
 
-    function fazoL() {
+        let userAluno1 = 'Aluno 1'
+        let userAluno2 = 'Aluno 2'
+        let userAluno3 = 'Aluno 3'
 
-        let salarioBruto = Number(document.querySelector('#iN1').value) 
-        let descontoINSS
+        let passwordAluno1 = 'Trocar123'
+        let passwordAluno2 = 'Senha@123'
+        let passwordAluno3 = '123Trocar'
 
-        if (salarioBruto <= 600) {
-            descontoINSS = 0
+        function validaUser() {
+            if (userInput == 'Aluno 1' || userInput == 'Aluno 2' || userInput == 'Aluno 3') {
+                
+            } else {
+                
+            }
         }
-
-        else if (salarioBruto > 600 && salarioBruto <= 1200) {
-            descontoINSS = salarioBruto * 0.25
-        }
-
-        else if (salarioBruto > 1200 && salarioBruto <= 2000) {
-            descontoINSS = salarioBruto * 0.30
-        }
-        else if (salarioBruto > 2000) {
-            descontoINSS = salarioBruto * 0.35
-        }
-
-        document.getElementById('iOutput').value = `Salário líquido: ${salarioBruto - descontoINSS}`
 
     }
 
+
+
+
+
 </script>
+
 
 </html>

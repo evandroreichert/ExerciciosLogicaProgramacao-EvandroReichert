@@ -5,6 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ex 008</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            
+        }
+
+        h1 {
+            font-size: 1.7em;
+            margin: 15px;
+            color: white;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: white;
+        }
+
+        body {
+            height: 100vh;
+            background-color: #363636;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: grid;
+            align-items: center;
+        }
+
+        form {
+            border-radius: 50px;
+            background: linear-gradient(145deg, #313131, #3a3a3a);
+            box-shadow: 20px 20px 60px #2e2e2e,
+                -20px -20px 60px #3e3e3e;
+            padding: 50px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            margin: 5px;
+        }
+
+        output{
+            color: white;
+        }
+
+        .btn {
+            border: none;
+            border-radius: 8px;
+            padding: 5px 15px;
+            background-color: #f5f7fa;
+            box-shadow: 1px 1px 1px black;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -16,7 +76,7 @@
         <label for="iN1">Preço do produto:</label>
         <input type="number" id="iN1" placeholder="Quanto foi pago?">
 
-        <input type="button" value="Ver Preço Final" onclick="verPreco()">
+        <input type="button" value="Ver Preço Final" class="btn" onclick="verPreco()">
 
         <output id="iOutput"></output>
 
