@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ex 005</title>
 </head>
+
 <body>
 
     <form action="">
@@ -21,7 +23,7 @@
         <input type="number" id="iN3">
 
         <input type="button" value="Ver Ordem" onclick="verOrdem()">
-        
+
         <output id="iMenor"></output>
 
         <details>
@@ -30,12 +32,12 @@
         </details>
 
     </form>
-    
+
 </body>
 
 <script>
 
-    
+
 
 
     function verOrdem() {
@@ -45,37 +47,32 @@
         let n3 = Number(document.getElementById('iN3').value)
 
         if (n1 > n2) {
-            if (n1 > n3){
-                if (n2 > n3){
+            if (n1 > n3) {
+                if (n2 > n3) {
                     document.querySelector('#iMenor').value = `Ordem decrescente: ${n1}, ${n2}, ${n3}.`
                 }
-                else{
+                else {
                     document.querySelector('#iMenor').value = `Ordem decrescente: ${n1}, ${n3}, ${n2}.`
                 }
             }
-            else{
+            else {
                 document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n1}, ${n2}.`
             }
 
         } else {
-            if (n2 > n3){
-                if (n1 > n3){
+            if (n2 > n3) {
+                if (n1 > n3) {
                     document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n1}, ${n3}.`
                 }
-                else{
+                else {
                     document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n3}, ${n1}.`
                 }
             }
-            else{
+            else {
                 document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n2}, ${n1}.`
             }
         }
-
-
-        }
-
-           
-    
-
+    }
 </script>
+
 </html>
