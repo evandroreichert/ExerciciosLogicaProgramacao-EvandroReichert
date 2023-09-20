@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 008</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <h1>Calculadora de preços</h1>
+
+        <label for="iN1">Preço do produto:</label>
+        <input type="number" id="iN1" placeholder="Quanto foi pago?">
+
+        <input type="button" value="Ver Preço Final" onclick="verPreco()">
+
+        <output id="iOutput"></output>
+
+    </form>
+
+</body>
+
+<script>
+
+
+
+    function verPreco() {
+
+        let precoPago = Number(document.querySelector('#iN1').value) 
+        let porcentagemLucro
+
+        if (precoPago < 20) {
+            porcentagemLucro = precoPago * .5
+        } else {
+            porcentagemLucro = precoPago * .35
+        }
+
+        document.getElementById('iOutput').value = `O valor final do produto é: ${precoPago + porcentagemLucro}`
+
+    }
+
+</script>
+
+</html>
