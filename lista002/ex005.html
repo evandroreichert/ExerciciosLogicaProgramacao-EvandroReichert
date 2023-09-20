@@ -54,27 +54,20 @@
                 }
             }
             else{
+                document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n1}, ${n2}.`
+            }
 
-                if(n2 > n3){
-
-                    if(n1 > n3){
-                        document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n1}, ${n3}.`
-                    }
-                    else{
-                        document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n3}, ${n1}.`
-                    }
+        } else {
+            if (n2 > n3){
+                if (n1 > n3){
+                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n1}, ${n3}.`
                 }
                 else{
-                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n2}, ${n1}.`
+                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n3}, ${n1}.`
                 }
             }
-        if (n3 > n1) {
-            if (n3 > n2) {
-                if (n1 > n2) {
-                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n1}, ${n2}.`
-                }
-
-
+            else{
+                document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n2}, ${n1}.`
             }
         }
 
@@ -82,7 +75,7 @@
         }
 
            
-    }
+    
 
 </script>
 </html>
