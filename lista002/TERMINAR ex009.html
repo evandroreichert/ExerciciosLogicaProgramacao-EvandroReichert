@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 009</title>
+    <style>
+
+        .formula{
+            display: none;
+        }
+
+        .active{
+            display: block;
+        } 
+    </style>
+</head>
+<body>
+
+    <h1>Calcular área de Formas Geométricas</h1>
+
+    <label for="iFormaGeo">Qual forma geométrica você quer calcular?</label>
+    <select id="iFormaGeo">
+        <option value="circulo">Círculo</option>
+        <option value="retangulo">Retângulo</option>
+        <option value="triangulo-retangulo">Triângulo Retângulo</option>
+        <option value="triangulo-equilatero">Triângulo Equilátero</option>
+    </select>
+
+    <div class="formula active">
+        <label for="iCirculo">Qual o raio?</label>
+        <input type="number" id="iCirculo">
+    </div>
+
+    <div class="formula">
+        <label for="iRetanguloBase">Qual a base?</label>
+        <input type="number" id="iRetanguloBase">
+
+        <label for="iRetanguloAltura">Qual a altura?</label>
+        <input type="number" id="iRetanguloAltura">
+    </div>
+
+    <div class="formula">
+        <label for="iTrianguloRetanguloBase">Qual a base?</label>
+        <input type="number" id="iTrianguloRetanguloBase">
+        <label for="iTrianguloRetanguloAltura">Qual a altura?</label>
+        <input type="number" id="iTrianguloRetanguloAltura">
+    </div>
+
+    <div class="formula">
+        <label for="iTrianguloEquilatero">Qual o lado?</label>
+        <input type="number" id="iTrianguloEquilatero">
+    </div>
+    
+
+
+</body>
+
+
+<script>
+
+    function toggleFormula(){
+
+        let handleClass = document.getElementsByClassName('formula')
+    }
+
+</script>
+</html>

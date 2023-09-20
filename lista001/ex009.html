@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex009</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
             font-family: sans-serif;
             font-size: 1.1em;
         }
 
-        body{
+        body {
             height: 100vh;
             background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             background-repeat: no-repeat;
             background-size: cover;
         }
-        form{
+
+        form {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;    
-            height: 80vh;  
-         }
+            justify-content: center;
+            height: 80vh;
+        }
 
-         input{
+        input {
             margin: 5px;
-         }
+        }
     </style>
 </head>
+
 <body>
 
     <form action="">
@@ -41,21 +44,23 @@
         <input type="number" id="iAltura">
         <input type="button" value="Calcular" onclick="calcula()">
         <br><br>
-        <label for="iSaida">Você vai precisar de: </label>
         <output id="iSaida"></output>
     </form>
-    
+
 </body>
 
 <script>
 
     function calcula() {
         let largura = Number(document.getElementById('iLargura').value)
-    let altura = Number(document.getElementById('iAltura').value)
+        let altura = Number(document.getElementById('iAltura').value)
 
-    let tinta = (largura * altura) / 2 
-    let resultado = document.getElementById('iSaida').value = tinta + ' litros de tinta'
+        let area = largura * altura
+        let tinta = area / 2
+
+        let resultado = document.getElementById('iSaida').value = `Para a área de ${area.toFixed(1)}m², você vai precisar de ${tinta.toFixed(1)} litros de tinta`
     }
-    
+
 </script>
+
 </html>
