@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 003</title>
+</head>
+<body>
+
+    <form action="">
+
+        <label for="iNota1">Nota 1: </label>
+        <input type="number" id="iNota1">
+
+        <label for="iNota2">Nota 2: </label>
+        <input type="number" id="iNota2">
+
+        <input type="button" value="Ver Média" onclick="calculaMedia()">
+
+        <output id="iMedia"></output>
+        <output id="iBomOuRuim"></output>
+    </form>
+    
+</body>
+
+<script>
+
+    function calculaMedia() {
+        
+        let nota1 = Number(document.querySelector('#iNota1').value)
+        let nota2 = Number(document.querySelector('#iNota2').value)
+
+        let outMedia = document.querySelector('#iMedia')
+        let bomOuRuim = document.querySelector('#iBomOuRuim')
+        let media = (nota1 + nota2) / 2
+        
+        outMedia.value = `Sua média é ${media}`
+
+        if (media => 7) {
+            bomOuRuim.value = `Você teve um bom aproveitamento, parabéns!`
+        } 
+        
+        if (media < 7){
+            bomOuRuim.value = `Você não teve um bom aproveitamento, continue estudando e não desista!`
+        }
+
+    }
+
+</script>
+</html>
