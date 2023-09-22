@@ -101,30 +101,32 @@
         let n2 = Number(document.getElementById('iN2').value)
         let n3 = Number(document.getElementById('iN3').value)
 
+        let ordem = document.querySelector('#iMenor')
+
         if (n1 > n2) {
             if (n1 > n3) {
                 if (n2 > n3) {
-                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n1}, ${n2}, ${n3}.`
+                    ordem.value = `Ordem decrescente: ${n1}, ${n2}, ${n3}.`
                 }
                 else {
-                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n1}, ${n3}, ${n2}.`
+                    ordem.value = `Ordem decrescente: ${n1}, ${n3}, ${n2}.`
                 }
             }
             else {
-                document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n1}, ${n2}.`
+                ordem.value = `Ordem decrescente: ${n3}, ${n1}, ${n2}.`
             }
 
         } else {
             if (n2 > n3) {
                 if (n1 > n3) {
-                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n1}, ${n3}.`
+                    ordem.value = `Ordem decrescente: ${n2}, ${n1}, ${n3}.`
                 }
                 else {
-                    document.querySelector('#iMenor').value = `Ordem decrescente: ${n2}, ${n3}, ${n1}.`
+                    ordem.value = `Ordem decrescente: ${n2}, ${n3}, ${n1}.`
                 }
             }
             else {
-                document.querySelector('#iMenor').value = `Ordem decrescente: ${n3}, ${n2}, ${n1}.`
+                ordem.value = `Ordem decrescente: ${n3}, ${n2}, ${n1}.`
             }
         }
     }

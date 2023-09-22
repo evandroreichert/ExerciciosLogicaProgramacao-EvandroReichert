@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 001</title>
+</head>
+<body>
+    
+    <h1>Radar Eletrônico</h1>
+    <form action="">
+
+        <label for="iVelocidade">Velocidade do carro:</label>
+        <input type="number" id="iVelocidade">
+
+        <input type="button" value="Radar" onclick="verRadar()">
+        <output id="iOut"></output>
+        <output id="valorMulta"></output>
+
+    </form>
+
+</body>
+
+<script>
+
+    function verRadar(){
+
+        let velocidade = document.getElementById('iVelocidade').value
+        let output = document.getElementById('iOut') 
+        let outputMulta =  document.getElementById('valorMulta') 
+
+        let valorMulta = (velocidade - 80) * 5
+
+        if (velocidade > 80) {
+            output.value = `Você foi MULTADO!`
+            outputMulta.value = `Pague ${valorMulta.toLocaleString("pt-BR", {style: 'currency', currency: 'BRL'})}`
+        }
+        else {
+            output.value = `Velocidade permitida, use sempre o cinto de segurança.`
+        }
+    }
+    
+
+
+</script>
+</html>

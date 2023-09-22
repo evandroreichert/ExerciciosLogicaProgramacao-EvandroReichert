@@ -91,14 +91,14 @@
     function compara() {
 
         let n1 = Number(document.querySelector('#iN1').value)
-        let output = document.querySelector('#iOutput').value
+        let output = document.querySelector('#iOutput')
         
         if (n1 >= 30 && n1 <= 90) {
-            document.querySelector('#iOutput').value = `${n1} está entre 30 e 90.`
+            output.value = `${n1} está entre 30 e 90.`
         }
 
         else {
-            document.querySelector('#iOutput').value = `${n1} NÃO está entre 30 e 90.`
+            output.value = `${n1} NÃO está entre 30 e 90.`
         }
 
 

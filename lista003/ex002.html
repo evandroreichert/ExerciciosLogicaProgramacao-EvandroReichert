@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 002</title>
+</head>
+<body>
+
+    <form action="">
+
+        <label for="iAno">Seu Ano de Nascimento</label>
+        <input type="number" id="iAno">
+
+        <input type="button" value="Ver Idade" onclick="calculaIdade()">
+        <output id="iIdade"></output> <br>
+        <output id="iVota"></output>
+
+    </form>
+    
+</body>
+
+<script>
+
+    function calculaIdade() {
+        
+        let anoNasc = document.getElementById('iAno').value
+        let outIdade = document.getElementById('iIdade')
+        let outVota = document.getElementById('iVota')
+
+        let idade = 2023 - anoNasc
+
+        outIdade.value = `Você tem ${idade} anos`
+        
+        if (idade >= 18) {
+            outVota.value = `Você deve votar.`
+        } else {
+            outVota.value = `Você ainda não precisa votar`
+        }
+        
+    }
+</script>
+</html>

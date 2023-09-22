@@ -91,18 +91,18 @@
     function compara20() {
 
         let n1 = Number(document.querySelector('#iN1').value)
-        let output = document.querySelector('#iOutput').value
+        let output = document.querySelector('#iOutput')
 
         if (n1 > 20) {
-            document.querySelector('#iOutput').value = `${n1} é o maior que 20.`
+            output.value = `${n1} é o maior que 20.`
         }
 
         else if (n1 === 20) {
-            document.querySelector('#iOutput').value = `Seu número é igual a 20`
+            output.value = `Seu número é igual a 20.`
         }
 
         else if (n1 < 20) {
-            document.querySelector('#iOutput').value = `${n1} é menor que 20`
+            output.value = `${n1} é menor que 20.`
         }
     }
 

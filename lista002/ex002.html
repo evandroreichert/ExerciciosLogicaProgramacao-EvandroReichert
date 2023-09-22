@@ -101,6 +101,10 @@
         let n2 = Number(document.querySelector('#iN2').value)
         let n3 = Number(document.querySelector('#iN3').value)
 
+        if (n1 == n2 || n2 == n3){
+            document.querySelector('#iMaior').value = `Insira somente números diferentes.`
+        }
+
         if (n1 > n2 && n1 > n3) {
             document.querySelector('#iMaior').value = `${n1} é o maior número.`
         }

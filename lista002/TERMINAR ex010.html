@@ -78,6 +78,7 @@
 
         <input type="button" value="Login" id="iLogin">
     </form>
+    <output id="iOut"></output>
 
 </body>
 
@@ -97,20 +98,23 @@
         let passwordAluno2 = 'Senha@123'
         let passwordAluno3 = '123Trocar'
 
+        let userValidado
+        let passwordValidada
+
         function validaUser() {
             if (userInput == 'Aluno 1' || userInput == 'Aluno 2' || userInput == 'Aluno 3') {
-                
+                return userValidado == true
             } else {
-                
+                return userValidado == false
             }
         }
 
+
+        if (userValidado == true && passwordValidada == true)
+            document.getElementById('#iOut').value = 'ACESSO PERMITIDO'
+
+
     }
-
-
-
-
-
 </script>
 
 
