@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 005</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <h1>É Ano Bissexto?</h1>
+
+        <label for="iAno">Insira um Ano: </label>
+        <input type="number" id="iAno">
+
+        <input type="button" value="Ver Ano" onclick="printBissexto()">
+        <output id="iSaida"></output>
+
+
+    </form>
+
+</body>
+
+<script>
+
+    function printBissexto() {
+
+        var ano = document.querySelector('#iAno').value
+        var output = document.getElementById('iSaida')
+
+        function verificaBissexto() {
+
+            let ano = document.querySelector('#iAno').value
+            let output = document.getElementById('iSaida').value
+
+            if (ano % 400 == 0) {
+                return true
+            }
+
+            if (ano % 4 == 0 && ano % 100 != 0) {
+                return true
+            }
+
+            return false
+        }
+
+        if (verificaBissexto()) {
+            output.value = `${ano} é um ano Bissexto.`
+        } else {
+            output.value = `${ano} NÃO é um ano Bissexto.`
+        }
+
+        verificaBissexto()
+    }
+
+    
+
+</script>
+
+</html>
