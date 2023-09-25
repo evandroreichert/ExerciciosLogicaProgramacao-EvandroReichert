@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 009</title>
+</head>
+<body>
+    
+    <form action="">
+
+        <h1>Pode formar um triângulo?</h1>
+
+        <label for="reta1">Reta 1: </label>
+        <input type="number" id="reta1">
+       
+        <label for="reta2">Reta 2: </label>
+        <input type="number" id="reta2">
+
+        <label for="reta3">Reta 3: </label>
+        <input type="number" id="reta3">
+
+        <input type="button" value="Resultado" onclick="isTriangulo()">
+
+        <output id="iSaida"></output>
+
+    </form>
+
+<script>
+
+    function isTriangulo() {
+        
+        let r1 = document.querySelector('#reta1').value
+        let r2 = document.querySelector('#reta2').value
+        let r3 = document.querySelector('#reta3').value
+
+        let out = document.querySelector('#iSaida')
+
+        if (r1 < r2 + r3 
+            && r2 < r1 + r3 
+            && r3 < r1 + r2) {
+            out.value = `Pode formar um triângulo.`
+        } else{
+            out.value = `NÃO pode formar um triângulo`
+        }
+    }
+
+</script>
+</body>
+</html>
