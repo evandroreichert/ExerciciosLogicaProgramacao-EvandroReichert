@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 009</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .forma{
+            padding: 5px;
+        }
+    </style>
+
+
+</head>
+<form action="">
+
+        <h1>Calculadora de Área</h1>
+
+        <label for="idMedida1" id="idLbMedida1">Raio</label><br>
+        <input type="number" id="idMedida1" name="nmMedida1" step="0.01"><br><br>
+
+        <label for="idMedida2" id="idLbMedida2"></label><br>
+        <input type="number" id="idMedida2" name="idMedida2" step="0.01" disabled><br><br>
+
+        <div class="forma">
+            <input type="radio" name="nmFormaGeometrica" id="idCirculo" value="circulo" onclick="habilitarCirculo()" checked>
+            <label for="idCirculo">Circulo</label>
+        </div>
+
+        <div class="forma">
+            <input type="radio" name="nmFormaGeometrica" id="idRetanculo" value="retangulo" onclick="habilitarRetangulo()">
+            <label for="idRetanculo">Retânculo</label>
+        </div>
+
+        <div class="forma">
+            <input type="radio" name="nmFormaGeometrica" id="idTrianguloRetangulo" value="trianRetangulo" onclick="habilitarTrianguloRetangulo()">
+            <label for="idTrianguloRetangulo">Triângulo Retângulo</label>
+        </div>
+
+        <div class="forma">
+            <input type="radio" name="nmFormaGeometrica" id="idTrianguloEquilatero" value="trianEquilatero" onclick="habilitarTrianguloEquilatero()">
+            <label for="idTrianguloEquilatero">Triângulo Equilatero</label>
+        </div>       
+        
+        
+
+        <input type="button" id="idBtCalcular" class="btn" value="Calcular Área" onclick="calcularArea()">
+        <output id="idOut"></output> 
+
+    
+
+
+
+
+</form>
+
+<script>
+
+    function habilitarCirculo() {
+        document.getElementById("idLbMedida1").innerText = "Raio";
+        document.getElementById("idLbMedida2").innerText = "";
+        document.getElementById("idMedida2").disabled = true; 
+    }
+
+    function habilitarRetangulo() {
+        document.getElementById("idLbMedida1").innerText = "Base";
+        document.getElementById("idLbMedida2").innerText = "Altura";
+        document.getElementById("idMedida2").disabled = false;  7
+    }
+    
+    function habilitarTrianguloRetangulo() {
+        document.getElementById("idLbMedida1").innerText = "Base";
+        document.getElementById("idLbMedida2").innerText = "Altura";
+        document.getElementById("idMedida2").disabled = false;     
+    }
+
+    function habilitarTrianguloEquilatero() {
+        document.getElementById("idLbMedida1").innerText = "Lado";
+        document.getElementById("idLbMedida2").innerText = "";
+        document.getElementById("idMedida2").disabled = true;  
+    }
+
+
+    function calcularArea(){
+        let area
+        let formaGeometrica = document.querySelector("input[name=nmFormaGeometrica]:checked").value
+        
+        switch (formaGeometrica) {
+            case "circulo":
+                let raio = Number(document.getElementById("idMedida1").value)
+                area = Math.PI * raio * raio 
+                break;
+                
+            case "retangulo":
+                let baseRet = Number(document.getElementById("idMedida1").value)
+                let alturaRet = Number(document.getElementById("idMedida2").value)
+                area = baseRet * alturaRet
+                break;
+                
+                
+            case "trianRetangulo":
+                let baseTri = Number(document.getElementById("idMedida1").value)
+                let alturaTri = Number(document.getElementById("idMedida2").value)
+                area = (baseTri * alturaTri)/2
+                break;
+
+            case "trianEquilatero":
+                let lado = Number(document.getElementById("idMedida1").value)
+                area = ((lado ** 2) *  Math.sqrt(3) )/4
+                break;
+        
+        }
+        document.getElementById("idOut").value = `Área: ${area.toFixed(2)}cm²`
+        
+        "Area: " + area.toFixed(2) + "cm2"
+    }
+
+
+
+</script>
+
+</body>
+</html>
