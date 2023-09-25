@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 008</title>
+</head>
+<body>
+
+    <form action="">
+
+        <h1>Uber</h1>
+        <label for="iDistancia">Qual distância vamos percorrer?</label>
+        <input type="number" id="iDistancia">
+
+        <input type="button" value="Ver Valor" onclick="calculaValor()">
+
+        <output id="iSaida"></output>
+
+    </form>
+
+
+    <script>
+
+        function calculaValor() {
+            
+            let distancia = Number(document.querySelector('#iDistancia').value)
+            let output = document.querySelector('#iSaida')
+            let valorKm = Number()
+            
+            if (distancia < 200) {
+                valorKm = .50
+            } 
+            else{
+                valorKm = .45
+            }
+            
+            let valorCorrida = Number(distancia * valorKm)
+    
+            output.value = `O valor para ${distancia}km será: ${valorCorrida.toLocaleString('pt-BR', {currency: 'BRL' ,style: 'currency'})}`
+        }
+
+    </script>
+    
+</body>
+</html>
