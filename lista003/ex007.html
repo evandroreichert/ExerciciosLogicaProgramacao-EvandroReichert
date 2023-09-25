@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ex 007</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .sexo{
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,13 +21,14 @@
         <label for="iNome">Nome: </label>
         <input type="text" id="iNome">
 
-        <label for="">Sexo: </label>
-        
-        <input type="radio" name="Sexo"  id="iFem">
-        <label for="iFem">Feminino</label>
-
-        <input type="radio" name="Sexo"  id="iMasc">
-        <label for="iMasc">Masculino</label>
+        <div class="sexo">
+            <label for="">Sexo: </label>
+            
+            <input type="radio" name="Sexo"  id="iFem">
+            <label for="iFem">Feminino</label>
+            <input type="radio" name="Sexo"  id="iMasc">
+            <label for="iMasc">Masculino</label>
+        </div>
 
         <label for="iValor">Valor da compra: </label>
         <input type="number" id="iValor">
