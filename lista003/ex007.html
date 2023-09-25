@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 007</title>
+</head>
+<body>
+
+
+    <form action="">
+
+        <h1>PROMOÇÃO DIA DA MULHER</h1>
+
+        <label for="iNome">Nome: </label>
+        <input type="text" id="iNome">
+
+        <label for="">Sexo: </label>
+        
+        <input type="radio" name="Sexo"  id="iFem">
+        <label for="iFem">Feminino</label>
+
+        <input type="radio" name="Sexo"  id="iMasc">
+        <label for="iMasc">Masculino</label>
+
+        <label for="iValor">Valor da compra: </label>
+        <input type="number" id="iValor">
+
+        <input type="button" value="Ver Desconto" onclick="calculaDesconto()">
+
+        <output id="iOla"></output> <br>
+        <output id="iValorFinal"></output>
+
+    </form>
+    
+
+
+    <script>
+
+        function calculaDesconto() {
+
+
+            let nome = document.querySelector('#iNome').value
+            let sexoF = document.querySelector('#iFem').checked
+            let sexoM = document.querySelector('#iMasc').checked
+            let valorInicial = Number(document.querySelector('#iValor').value)
+
+            let desconto 
+            
+            let outputvalorFinal = document.querySelector('#iValorFinal')
+            let ola = document.querySelector('#iOla')
+            
+            if (sexoF) {
+                desconto = valorInicial * .13
+            } else{
+                desconto = valorInicial * .05
+            }
+
+            let valorFinal = valorInicial - desconto
+
+            ola.value = `Obrigado(a) pela compra, ${nome}!`
+            outputvalorFinal.value = `Seu NOVO preço com desconto é ${valorFinal.toLocaleString('pt-BR', {currency: 'BRL', style: 'currency'})}`
+        }
+
+
+
+    </script>
+</body>
+</html>
