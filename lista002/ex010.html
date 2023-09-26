@@ -7,7 +7,6 @@
     <title>Ex 010</title>
     <link rel="stylesheet" href="style.css">
     <style>
-
         .showPass{
             margin: 10px;
         }
@@ -37,7 +36,7 @@
         <a href="#">Esqueci minha Senha</a>
 
 
-        <input type="button" value="Login" class="btn" onclick="efetuaLogin()"> 
+        <input type="button" value="Login" class="btn" onclick="efetuaLogin(); bloqueiaLogin()"> 
 
         <output id="idOut"></output>
     </form>
@@ -94,6 +93,33 @@
                 inSenha.type = "password"
             }
         }
+
+        let clicked = 0
+
+         function bloqueiaLogin() {
+            let user = document.getElementById("idUser")
+            let senha = document.getElementById("idSenha")
+            let btn = document.querySelector('.btn')
+            let out = document.getElementById("idOut")
+
+            btn.addEventListener('click', clicou())
+            
+
+            function clicou() {
+                ++clicked
+            }
+
+            if (clicked == 3 && out.value != 'Acesso Permitido') {
+                out.value = `Acesso BLOQUEADO.`
+                user.disabled = true
+                senha.disabled = true
+            }
+
+            console.log(clicked)
+         }
+
+         
+
 
     </script>
 </body>
