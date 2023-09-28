@@ -30,8 +30,11 @@
         let anoNasc = document.querySelector('#iAno').value
         let outIdade = document.querySelector('#iIdade')
         let outAlistamento = document.querySelector('#iAlistamento')
+        
+        let date = new Date()
+        let anoAtual = date.getFullYear()
 
-        let idade = 2023 - anoNasc
+        let idade = anoAtual - anoNasc
         let idadeFaltando = 18 - idade
         let idadePassada = idade - 18
 

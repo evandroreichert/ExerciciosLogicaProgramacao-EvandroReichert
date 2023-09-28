@@ -35,13 +35,13 @@
 
             if (imc < 18.5) {
                 out.value = `Seu IMC é: ${imc.toFixed(2)}. Abaixo do peso`
-            } else if (imc >= 18.5 && imc <= 25) {
+            } else if (imc >= 18.5 && imc < 25) {
                 out.value = `Seu IMC é: ${imc.toFixed(2)}. Peso ideal`
-            } else if (imc > 25 && imc < 30) {
+            } else if (imc >= 25 && imc < 30) {
                 out.value = `Seu IMC é: ${imc.toFixed(2)}. Sobrepeso`
-            } else if (imc >= 30 && imc <= 40) {
+            } else if (imc >= 30 && imc < 40) {
                 out.value = `Seu IMC é: ${imc.toFixed(2)}. Obesidade`
-            } else if (imc > 40) {
+            } else if (imc >= 40) {
                 out.value = `Seu IMC é: ${imc.toFixed(2)}. Obesidade Mórbida`
             }
         }
