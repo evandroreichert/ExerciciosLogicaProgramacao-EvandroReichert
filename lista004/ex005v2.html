@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 005 v2</title>
+</head>
+<body>
+    
+    <form action="">
+
+        <label for="iNum">Insira um número inteiro: </label>
+        <input type="number" id="iNum">
+
+        <button type="button" onclick="verContagem()">Ver contagem</button><br><br>
+
+        <output></output>
+
+    </form>
+
+
+    <script>
+
+        function verContagem() {
+            let numeroInput = document.querySelector('#iNum').value
+            let out = document.querySelector('output')
+
+            let msg = 'Início | '
+
+            for (let contagem = 1; contagem <= numeroInput; contagem++){
+                msg += contagem + " "
+                console.log(contagem);
+            }
+
+            out.value = msg + '| Acabou!'
+        }
+    </script>
+
+</body>
+</html>

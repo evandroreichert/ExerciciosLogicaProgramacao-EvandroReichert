@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 006</title>
+</head>
+<body>
+
+    <output></output> 
+
+    <script>
+
+        let out = document.querySelector('output')
+        var msg = "Início | "
+        var contador = 30
+
+        while (contador >= 1) {
+            if(contador % 4 == 0){
+                msg += `[${contador}] `
+            }else{
+                msg += contador + " "
+            }
+            contador--
+        }
+
+        msg += '| Acabou!'
+
+        out.value = msg
+        console.log(msg)
+
+       
+    </script>
+    
+</body>
+</html>

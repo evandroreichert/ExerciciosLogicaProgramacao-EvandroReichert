@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 004 v2</title>
+</head>
+<body>
+
+    <output></output> 
+
+    <script>
+
+        let out = document.querySelector('output')
+        var msg = "Início | "
+
+        for (let contador = 100; contador >= 0; contador -= 5) {
+            msg += contador + " "
+        }
+
+        msg += '| Acabou!'
+
+        out.value = msg
+        console.log(msg)
+
+       
+    </script>
+    
+</body>
+</html>
