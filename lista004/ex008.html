@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 008</title>
+</head>
+<body>
+    
+
+    <label for="iInitialNum">Numero Inicial</label><br>
+    <input type="number" id="iInitialNum"><br>
+
+    <label for="iFinalNum">Numero Final</label><br>
+    <input type="number" id="iFinalNum"><br>
+
+    <label for="iIncremento">Incremento</label><br>
+    <input type="number" id="iIncremento"><br><br>
+
+    <input type="button" value="Contar" onclick="contar()">
+
+    <output id="idOut"></output>
+
+    <script>
+
+        function contar() {
+            let initialNum = Number(document.getElementById("iInitialNum").value)
+            let finalNum = Number(document.getElementById("iFinalNum").value)
+            let incremento = Number(document.getElementById("iIncremento").value)
+
+            let msg = "Inicio "
+
+            for (let cont = initialNum; cont < iFinalNum; cont += incremento) {
+                msg = msg + cont + " "
+            }
+
+            msg = msg + "Acabou!"
+
+            document.getElementById("idOut").value = msg 
+        }
+    </script>
+
+</body>
+</html>
