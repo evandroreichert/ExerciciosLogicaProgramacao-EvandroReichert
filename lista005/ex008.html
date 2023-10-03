@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 008</title>
+</head>
+<body>
+
+    <form action="">
+
+        <h1>Conversor de Temperaturas</h1>
+
+        <label for="iTempC">Celsius: </label>
+        <input type="number" id="iTempC" placeholder="ºC">
+
+        <label for="iTempF">Fahrenheit: </label>
+        <input type="number" id="iTempF" placeholder="ºF">
+
+        <label for="iTempK">Kelvin: </label>
+        <input type="number" id="iTempK" placeholder="ºK">
+
+
+        <button type="button" onclick="converter()">Converter</button>
+        
+        <output id="iOut"></output>
+
+    </form>
+
+    <script>
+
+        
+        function converter() {
+            let temperaturaC = Number(document.querySelector('#iTempC').value)
+            let temperaturaF = Number(document.querySelector('#iTempF').value)
+            let temperaturaK = Number(document.querySelector('#iTempK').value)
+
+            
+            console.log(typeof(temperaturaC));
+            console.log(typeof(temperaturaF));
+            if (temperaturaC ) {
+                console.log('opa');
+            }
+        }
+    </script>
+    
+</body>
+</html>

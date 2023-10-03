@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 005</title>
+</head>
+
+<body>
+
+    <label for="iValor">Valor do produto: </label>
+    <input type="number" id="iValor">
+
+    <button type="button" onclick="adiciona()">Adicionar</button>
+    <button type="button" onclick="confere()">Conferir Valores</button>
+
+    <output id="iOut"></output>
+
+    <script>
+
+        var menor = 999999
+        var maior = 0
+
+        let out = document.querySelector('#iOut')
+
+        function adiciona() {
+            let price = Number(document.querySelector('#iValor').value)
+            if (price > maior) {
+                maior = price
+            } 
+            if (price < menor) {
+                menor = price
+            }
+
+        }
+
+        function confere() {
+            out.value = `Menor preço: ${menor}, maior preço: ${maior}`
+        }
+
+    </script>
+
+</body>
+
+</html>

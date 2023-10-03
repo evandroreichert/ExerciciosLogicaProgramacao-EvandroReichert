@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 008</title>
+</head>
+<body>
+
+    <form action="">
+
+        <h1>Conversor para Fahrenheit</h1>
+
+        <label for="iTemp">Insira uma temperatura: </label>
+        <input type="number" id="iTemp" placeholder="Celsius">
+
+        <button type="button" onclick="converter()">Converter</button>
+        
+        <output id="iOut"></output>
+
+    </form>
+
+    <script>
+
+        
+        function converter() {
+            let temperatura = document.querySelector('#iTemp').value
+            let F
+            let out = document.querySelector('#iOut')
+            F = (9*temperatura + 160) / 5
+            out.value = temperatura + '\xB0C é ' + F + '\xB0F.'
+        }
+    </script>
+    
+</body>
+</html>

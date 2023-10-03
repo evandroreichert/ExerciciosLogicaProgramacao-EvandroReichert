@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 003</title>
+</head>
+<body>
+
+    <output id="iOut"></output>
+
+
+    <script>
+
+        var out = document.querySelector('#iOut')
+        var msg = 'Números sorteados: '
+
+        var maior5 = 0
+        var divide3 = 0
+
+        for (let i = 0; i < 20; i++) {
+            let randomNumber = Math.round(Math.random() * 10)
+            msg += randomNumber + ' '
+
+            if (randomNumber > 5) {
+                maior5++
+            } else if (randomNumber % 3 == 0){
+                divide3++
+            }
+        }
+        out.value = `${msg}. Números maiores que 5: ${maior5} | Números divisíveis por 3: ${divide3}`
+
+    </script>
+
+</body>
+</html>

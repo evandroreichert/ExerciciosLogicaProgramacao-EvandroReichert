@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 004</title>
+</head>
+<body>
+
+    <output id="iOut"></output>
+
+<script>
+
+    let n1 = 0
+    let n2 = 1
+    let proximo    
+
+
+    let msg = 'Sequência: '
+    const out = document.querySelector('#iOut')
+
+    for (let i = 0; i < 10; i++) {
+        console.log(n1);
+        msg += n1 + ' '
+        proximo = n1 + n2
+        n1 = n2
+        n2 = proximo
+    }
+
+    out.value = msg
+
+</script>
+
+
+</body>
+</html>

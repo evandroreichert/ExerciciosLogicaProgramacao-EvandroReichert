@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 010</title>
+</head>
+
+<body>
+
+
+    <label for="iInitialNum">Numero Inicial</label><br>
+    <input type="number" id="iInitialNum"><br>
+
+    <label for="iFinalNum">Numero Final</label><br>
+    <input type="number" id="iFinalNum"><br>
+
+    <input type="radio" name="imparPar" id="iPar" value="par" checked>
+    <label for="iPar">Par</label> <br>
+
+    <input type="radio" name="imparPar" id="iImpar" value="impar">
+    <label for="iImpar">Ímpar</label> <br>
+
+    <input type="button" value="Contar" onclick="contar()">
+
+    <output id="idOut"></output>
+
+    <script>
+
+        function contar() {
+            
+            let inicial = Number(document.querySelector('#iInitialNum').value)
+            let final = Number(document.querySelector('#iFinalNum').value)
+
+            let imparPar = document.querySelector('input[name=imparPar]:checked').value
+
+            let out = document.querySelector('#idOut')
+            let msg = 'Início '
+
+            if (imparPar == "par") {
+                for (let num = inicial; num <= final; num++) {
+                    
+                    let par = num % 2 == 0
+
+                    if (par) {
+                        msg += num + ' '
+                    }
+                }
+                } else {
+                    for (let num = inicial; num <= final; num++) {
+                    
+                    let impar = num % 2 != 0
+
+                    if (impar) {
+                        msg += num + ' '
+                    }
+                }
+                document.querySelector('#idOut').value = msg
+            } 
+
+        } 
+
+
+    </script>
+
+</body>
+
+</html>

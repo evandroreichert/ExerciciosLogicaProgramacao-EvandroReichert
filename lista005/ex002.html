@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 002</title>
+</head>
+
+<body>
+
+    <label for="iInitialNum">Numero Inicial</label><br>
+    <input type="number" id="iInitialNum"><br>
+
+    <label for="iFinalNum">Numero Final</label><br>
+    <input type="number" id="iFinalNum"><br>
+
+    <input type="button" value="Contar" onclick="testaPrimo()">
+
+    <output id="idOut"></output>
+
+    <script>
+
+        function testaPrimo() {
+
+            let inicial = Number(document.querySelector('#iInitialNum').value)
+            let final = Number(document.querySelector('#iFinalNum').value)
+
+            let msg = 'Início: '
+            let out = document.querySelector('#iOut')
+
+            for (let num = inicial; num < final; num++) {
+                if (isPrimo(num)) {
+                    msg += num + ' '
+                }
+            }
+            document.querySelector('#idOut').innerHTML = msg
+        }
+
+        function isPrimo(num) {
+            for (let i = 2, raizQuadrada = Math.sqrt(num); i < raizQuadrada; i++) {
+                if (num % i == 0) return false 
+                    return num > 1
+            }
+                
+            
+        }
+        
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 006</title>
+</head>
+
+<body>
+
+    <label for="iValor">Idade: </label>
+    <input type="number" id="iIdade">
+
+    <button type="button" onclick="adiciona()">Adicionar idade</button>
+    <button type="button" onclick="confere()">Conferir Idades</button>
+
+    <label for="mediaIdades">Média de Idades:</label>
+    <output id="mediaIdades"></output>
+
+    <label for="maiores18">Maiores de 18:</label>
+    <output id="maiores18"></output>
+
+    <label for="menor5">Menor de 5 anos:</label>
+    <output id="menor5"></output>
+
+    <label for="maiorIdade">Maior idade:</label>
+    <output id="maiorIdade"></output>
+
+    <script>
+
+        var menor = 999999
+        var maior = 0
+
+        let idade = Number(document.querySelector('#iIdade').value)
+
+        let idadeSomada = 0
+
+        let contadorIdades = 0
+
+        function adiciona() {
+            idadeSomada += idade
+            contadorIdades++
+            let mediaIdades = idadeSomada / contadorIdades
+            document.querySelector('#mediaIdades').value = mediaIdades
+
+        }
+
+        function confere() {
+            out.value = `Menor preço: ${menor}, maior preço: ${maior}`
+        }
+
+    </script>
+
+</body>
+
+</html>
