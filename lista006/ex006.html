@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 006</title>
+</head>
+<body>
+
+
+    <label for="iNome">Insira um nome: </label>
+    <input type="text" id="iNome">
+
+    <button type="button" onclick="adiciona()">Adicionar Nome</button>
+    <button type="button" onclick="inverte()">Inverter Ordem</button>
+
+    <output id="iOut"></output>
+
+    <script>
+
+        let nomes = []
+        let out = document.querySelector('#iOut')
+        
+        
+        function adiciona() {
+            let inputNome = document.querySelector('#iNome').value
+            nomes.push(inputNome)
+            console.log(nomes);
+        }
+
+        function inverte() {
+            nomes.reverse()
+            out.value = nomes.reverse()
+        }
+
+
+    </script>
+    
+</body>
+</html>
