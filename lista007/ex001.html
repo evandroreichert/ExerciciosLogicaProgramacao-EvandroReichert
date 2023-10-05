@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 001</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <label for="iNotas">Insira as notas dos Alunos: </label>
+        <input type="number" id="iNotas" placeholder="apenas uma por vez">
+
+        <button type="button" onclick="adicionarNota()">Adicionar nota</button>
+        <button type="button" onclick="mostrarResultado()">Resultado da Turma</button> <br>
+
+
+        <label for="iMedia">Média da turma: </label>
+        <output id="iMedia"></output> <br>
+
+        <label for="iAcimaDaMedia">Alunos acima da média da turma: </label>
+        <output id="iAcimaDaMedia"></output> <br>
+
+        <label for="iMaiorNota">Maior nota: </label>
+        <output id="iMaiorNota"></output> <br>
+
+        <label for="iPosicao">Posição da maior nota: </label>
+        <output id="iPosicao"></output> <br>
+
+    </form>
+
+    <script>
+
+        let outputMedia = document.querySelector('#iMedia')
+        let outputAcimaMedia = document.querySelector('#iAcimaDaMedia')
+        let outputMaiorNota = document.querySelector('#iMaiorNota')
+        let outputPosicao = document.querySelector('#iPosicao')
+
+        let notas = []
+        let somaNotas = 0
+        let acimaMedia = 0
+
+        function adicionarNota() {
+
+            let inputNotas = Number(document.querySelector('#iNotas').value)
+            notas.push(inputNotas)
+
+            // soma as notas para processar a média e atualiza a cada nota adicionada
+
+            somaNotas += inputNotas
+
+            let mediaTurma = somaNotas / notas.length
+
+            for (let i = 0; i < notas.length; i++) {
+                outputMedia.value = mediaTurma.toFixed(2)
+            }
+
+            // incrementa alunos acima da média
+
+            if (inputNotas > mediaTurma) {
+                acimaMedia++
+                outputAcimaMedia.value = acimaMedia
+            }
+            console.log(notas);
+        }
+
+
+        function mostrarResultado() {
+            // encontra a maior nota usando Math.max()
+            let maiorNota = Number(Math.max(...notas))
+            outputMaiorNota.value = maiorNota.toFixed(2)
+
+            // o nome da função diz tudo
+            function encontrarPosicaoMaiorNota() {
+                let maiorNota = Math.max(...notas);
+                let posicoes = 0
+                
+                for (let i = 0; i < notas.length; i++) {
+                    if (notas[i] === maiorNota) {
+                        posicoes = i
+                        outputPosicao.value = posicoes
+                    }
+                }
+            }
+            
+            encontrarPosicaoMaiorNota()
+        }
+
+    </script>
+
+
+</body>
+
+</html>
