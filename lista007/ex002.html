@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 002</title>
+</head>
+<body>
+
+    <form action="">
+
+        <label for="iNome">Insira o nome: </label>
+        <input type="text" id="iNome">
+        
+        <label for="iIdade">Insira a idade: </label>
+        <input type="number" id="iIdade">
+
+        <button type="button" onclick="adiciona()">Adicionar Pessoa</button>
+        <button type="button" onclick="verificaMenor()">Ver menores de idade</button> <br>
+
+
+        <output id="iOut"></output>
+
+    </form>
+
+
+    <script>
+
+        let nomes = []
+        let idades = []
+        let msg = ''
+
+        
+        let out = document.querySelector('#iOut')
+        
+        function adiciona() {
+            
+            let inputNome = document.querySelector('#iNome').value
+            let inputIdade = Number(document.querySelector('#iIdade').value)
+            nomes.push(inputNome)
+            idades.push(inputIdade)
+            console.log(nomes, idades);
+        }
+        
+        function verificaMenor() {
+            let inputNome = document.querySelector('#iNome').value
+            let inputIdade = Number(document.querySelector('#iIdade').value)
+            for (let i = 0; i < idades.length; i++) {
+                if (idades[i] < 18) {
+                    msg += `${nomes[i]}, de ${idades[i]} anos, é menor de idade. \n`
+                }
+            }
+            out.innerText = msg
+        }
+        
+        verificaMenor()
+
+    </script>
+    
+</body>
+</html>
