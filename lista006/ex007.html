@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 007</title>
+</head>
+
+<body>
+
+    <h1>Múltiplos de 10</h1>
+
+    <label for="iNum">Insira um número: </label>
+    <input type="text" id="iNum">
+
+    <button type="button" onclick="adiciona()">Adicionar Número</button>
+    <button type="button" onclick="mostra()">Mostrar</button>
+
+    <output id="iOut"></output>
+
+    <script>
+
+        let numeros = []
+        let out = document.querySelector('#iOut')
+        let msg = ''
+
+        function adiciona() {
+            let inputNum = document.querySelector('#iNum').value
+            numeros.push(inputNum)
+            console.log(numeros);
+        }
+
+        function mostra() {
+            for (let i = 0; i < numeros.length; i++) {
+                let element = numeros[i];
+
+                if (element % 10 == 0) {
+                    msg += `${element}, na posição: ${i} |  `
+                }
+            }
+            out.value = msg
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 008</title>
+</head>
+
+<body>
+
+    <h1>Número Chave</h1>
+
+    <label for="iNum">Insira um número: </label>
+    <input type="text" id="iNum">
+
+    <button type="button" onclick="compara()">Mostrar</button>
+
+    <output id="iOut"></output>
+    <output id="iOut2"></output>
+
+    <script>
+
+        let numeros = []
+        let vezesSorteadas = 0
+        let msg = ''
+
+        let inputNum = document.querySelector('#iNum').value
+        let out = document.querySelector('#iOut')
+        let out2 = document.querySelector('#iOut2')
+        
+        for (let index = 0; index < 30; index++) {
+            let randomNumbers = parseInt(Math.random() * 15)
+            numeros.push(randomNumbers)
+        }
+        console.log(numeros);
+
+
+        function compara() {
+            for (let i = 0; i < numeros.length; i++) {
+                let element = numeros[i];
+
+                if (inputNum == element) {
+                    msg += `Posição ${i} | `
+                    vezesSorteadas++
+                }
+        
+            }
+            out.value = msg
+            out2.value = `O número ${inputNum} foi sorteado ${vezesSorteadas} vez(es)` 
+        }
+
+    </script>
+
+</body>
+</html>
