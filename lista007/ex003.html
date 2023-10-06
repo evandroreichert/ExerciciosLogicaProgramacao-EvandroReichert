@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 003</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <label for="iNome">Insira o nome: </label>
+        <input type="text" id="iNome">
+
+        <label for="iSexo">Sexo: </label>
+
+        <input type="radio" name="iSexo" id="iFem" value="F" checked>
+        <label for="iFem">Feminino: </label>
+        <input type="radio" name="iSexo" id="iMasc" value="M">
+        <label for="iMasc">Masculino: </label>
+
+        <label for="iSalario">Insira o salário: </label>
+        <input type="number" id="iSalario">
+
+        <button type="button" onclick="checarDados()">Resultado</button> <br>
+
+        <output id="iOut"></output>
+
+
+        <script>
+
+            let nomes = []
+            let sexo = []
+            let salarios = []
+            let mulherGanha5Mil = []
+
+            let msg = ''
+            let out = document.querySelector('#iOut')
+            
+            function checarDados() {
+                
+                let inputNome = document.querySelector('#iNome').value
+                let inputSexo = document.querySelector('input[type="radio"]:checked').value
+                let inputSalario = Number(document.querySelector('#iSalario').value)
+
+                nomes.push(inputNome)
+                sexo.push(inputSexo)
+                salarios.push(inputSalario)
+
+                if (inputSexo == 'F' && inputSalario >= 5000) {
+                    msg += `Nome: ${inputNome} | Salário: ${inputSalario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} \n`
+                }
+
+                out.innerText = msg
+
+            }
+
+                
+        </script>
+
+
+
+    </form>
+
+</body>
+
+</html>
