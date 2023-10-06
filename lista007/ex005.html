@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 005</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <label for="iNum">Insira 10 números: </label>
+        <input type="number" id="iNum" placeholder="apenas um por vez">
+
+        <label for="ordem">Ordem: </label>
+
+        <input type="radio" name="ordem" id="iCrescente" value="crescente" checked>
+        <label for="iCrescente">Crescente</label>
+        <input type="radio" name="ordem" id="iDecrescente" value="decrescente">
+        <label for="iDecrescente">Decrescente</label>
+
+        <button type="button" onclick="adicionar()">Adicionar Número</button>
+        <button type="button" onclick="ordenar()">Ordenar</button>
+
+        <output id="iOut"></output>
+
+    </form>
+
+    <script>
+
+        let numeros = []
+        let out = document.querySelector('#iOut')
+
+        function adicionar() {
+            let inputNum = Number(document.querySelector('#iNum').value)
+            numeros.push(inputNum)
+            console.log(numeros);
+        }
+
+        function bubbleSort(arr) {
+            let len = arr.length;
+
+            // Loop externo para percorrer todo o array
+            for (let i = 0; i < len - 1; i++) {
+
+                // Loop interno para comparar os elementos e fazer as trocas
+                for (let j = 0; j < len - 1 - i; j++) {
+
+                    // Comparar elementos adjacentes
+                    if (arr[j] > arr[j + 1]) {
+                        // Trocar os elementos se estiverem fora de ordem
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+
+        function ordenar() {
+            let ordem = document.querySelector('input[type="radio"]:checked').value
+
+            if (ordem === 'crescente') {
+                bubbleSort(numeros);
+            } else {
+                bubbleSort(numeros);
+                numeros.reverse();
+            }
+
+            console.log(numeros);
+            out.value = numeros
+        }
+
+
+    </script>
+</body>
+
+</html>
