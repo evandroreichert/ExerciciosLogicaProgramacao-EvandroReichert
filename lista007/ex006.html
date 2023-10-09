@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 006</title>
+</head>
+
+<body>
+
+    <form action="">
+
+        <input type="radio" name="toggleForm" id="iCadastroAluno" value="aluno" onchange="toggle()">
+        <label for="iCadastroAluno">Cadastrar Aluno</label>
+
+        <input type="radio" name="toggleForm" id="iCadastroNotas" value="nota" onchange="toggle()">
+        <label for="iCadastroNotas">Cadastrar Notas</label>
+
+        <input type="radio" name="toggleForm" id="iConsultar" value="consulta" onchange="toggle()">
+        <label for="iConsultar">Consultar Notas</label>
+
+        <fieldset id="cadastroAluno">
+            <legend>Cadastro de Aluno</legend>
+
+            <label for="nomeCadastro">Nome: </label>
+            <input type="text" id="nomeCadastro" class="nome">
+
+            <label for="endereco">Endereço: </label>
+            <input type="text" id="endereco">
+
+            <label for="nomeMae">Nome da Mãe: </label>
+            <input type="text" id="nomeMae">
+
+            <label for="nomePai">Nome do Pai: </label>
+            <input type="text" id="nomePai">
+
+            <label for="telefone">Telefone: </label>
+            <input type="number" id="telefone">
+
+            <button type="button" onclick="cadastrarAluno()">Cadastrar</button>
+
+        </fieldset>
+
+        <fieldset id="cadastroNotas" hidden='true'>
+            <legend>Cadastro de Notas</legend>
+
+            <select id="selectNomeCadastro">
+                <option value="">Selecione um aluno</option>
+            </select>
+
+            <label for="notaCadastro">Nota 1: </label>
+            <input type="number" id="notaCadastro1" class="nota">
+            <label for="notaCadastro">Nota 2: </label>
+            <input type="number" id="notaCadastro2" class="nota">
+            <label for="notaCadastro">Nota 3: </label>
+            <input type="number" id="notaCadastro3" class="nota">
+            <label for="notaCadastro">Nota 4: </label>
+            <input type="number" id="notaCadastro4" class="nota">
+
+            <button type="button" onclick="cadastrarNotas()">Adicionar Notas</button>
+
+        </fieldset>
+
+        <fieldset id="consultaNotas" hidden='true'>
+            <legend>Consultar Notas</legend>
+
+            <select id="selectNomeConsulta">
+                <option value="">Selecione um aluno</option>
+            </select>
+
+            <button type="button" onclick="consultarNotas()">Ver notas</button> <br> <br>
+
+            <fieldset>
+                <legend>Dados</legend>
+
+                <label for="outEndereco">Endereço: </label>
+                <output id="outEndereco"></output> <br>
+
+                <label for="outNomeMae">Nome da Mãe: </label>
+                <output id="outNomeMae"></output> <br>
+
+                <label for="outNomePai">Nome do Pai: </label>
+                <output id="outNomePai"></output> <br>
+
+                <label for="outTelefone">Telefone: </label>
+                <output id="outTelefone"></output> <br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Notas</legend>
+
+                <label for="outNota1">Nota 1: </label>
+                <output id="outNota1"></output> <br>
+
+                <label for="outNota2">Nota 2: </label>
+                <output id="outNota2"></output> <br>
+
+                <label for="outNota3">Nota 3: </label>
+                <output id="outNota3"></output> <br>
+
+                <label for="outNota4">Nota 4: </label>
+                <output id="outNota4"></output> <br> <br>
+
+                <label for="outMedia">Média: </label>
+                <output id="outMedia"></output> <br>
+
+                <label for="outSituacao">Situação: </label>
+                <output id="outSituacao"></output> <br>
+            </fieldset>
+
+        </fieldset>
+
+    </form>
+
+    <script>
+
+        let nomeAluno = []
+        let endereco = []
+        let nomeMae = []
+        let nomePai = []
+        let telefoneResponsavel = []
+
+        let nota1 = []
+        let nota2 = []
+        let nota3 = []
+        let nota4 = []
+
+        function toggle() {    // navega entre as telas com radio button
+            let selected = document.querySelector('input[name=toggleForm]:checked').value
+
+            let fieldset1 = document.querySelector('#cadastroAluno')
+            let fieldset2 = document.querySelector('#cadastroNotas')
+            let fieldset3 = document.querySelector('#consultaNotas')
+
+            if (selected == 'aluno') {
+                fieldset1.hidden = false
+                fieldset2.hidden = true
+                fieldset3.hidden = true
+            }
+            else if (selected == 'nota') {
+                fieldset1.hidden = true
+                fieldset2.hidden = false
+                fieldset3.hidden = true
+            }
+            else if (selected == 'consulta') {
+                fieldset1.hidden = true
+                fieldset2.hidden = true
+                fieldset3.hidden = false
+            }
+        }
+
+        function cadastrarAluno() {
+            let inputNome = document.querySelector('#nomeCadastro').value
+            let inputEndereco = document.querySelector('#endereco').value
+            let inputNomeMae = document.querySelector('#nomeMae').value
+            let inputNomePai = document.querySelector('#nomePai').value
+            let inputTelefone = document.querySelector('#telefone').value
+
+            nomeAluno.push(inputNome)
+            endereco.push(inputEndereco)
+            nomeMae.push(inputNomeMae)
+            nomePai.push(inputNomePai)
+            telefoneResponsavel.push(inputTelefone)
+
+            // cria uma nova opção no select a cada cadastro feito
+
+            let selectCadastro = document.querySelector('#selectNomeCadastro')
+            let selectConsulta = document.querySelector('#selectNomeConsulta')
+
+            let option = inputNome
+            let element = document.createElement("option")
+            element.textContent = option
+            element.value = nomeAluno.length - 1
+            selectCadastro.appendChild(element.cloneNode(true))
+            selectConsulta.appendChild(element.cloneNode(true))
+        }
+
+        function cadastrarNotas() {
+            let inputNota1 = Number(document.querySelector('#notaCadastro1').value)
+            let inputNota2 = Number(document.querySelector('#notaCadastro2').value)
+            let inputNota3 = Number(document.querySelector('#notaCadastro3').value)
+            let inputNota4 = Number(document.querySelector('#notaCadastro4').value)
+
+            nota1.push(inputNota1)
+            nota2.push(inputNota2)
+            nota3.push(inputNota3)
+            nota4.push(inputNota4)
+        }
+
+        function consultarNotas() {
+            let select = document.querySelector('#selectNomeConsulta')
+            let selectedOption = select.options[select.selectedIndex].value
+            let outEndereco = document.querySelector('#outEndereco')
+            let outMedia = document.querySelector('#outMedia')
+            let outSituacao = document.querySelector('#outSituacao')
+
+            let media = (nota1[selectedOption] + nota2[selectedOption] + nota3[selectedOption] + nota4[selectedOption]) / 4
+
+            let situacao
+
+            if (media >= 7) {
+                situacao = 'APROVADO'
+            } else {
+                situacao = 'REPROVADO'
+            }
+
+            for (let i = 0; i < nomeAluno.length; i++) {
+
+                outEndereco.value = endereco[selectedOption]
+                outNomeMae.value = nomeMae[selectedOption]
+                outNomePai.value = nomePai[selectedOption]
+                outTelefone.value = telefoneResponsavel[selectedOption]
+
+                outNota1.value = nota1[selectedOption].toFixed(2)
+                outNota2.value = nota2[selectedOption].toFixed(2)
+                outNota3.value = nota3[selectedOption].toFixed(2)
+                outNota4.value = nota4[selectedOption].toFixed(2)
+
+                outMedia.value = media.toFixed(2)
+                outSituacao.value = situacao
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
