@@ -21,15 +21,15 @@
     </form>
 
     <script>
-
         
         function converter() {
             let temperatura = document.querySelector('#iTemp').value
-            let F
+            let F = (9 * temperatura + 160) / 5
             let out = document.querySelector('#iOut')
-            F = (9*temperatura + 160) / 5
-            out.value = temperatura + '\xB0C é ' + F + '\xB0F.'
+
+            out.value = temperatura + 'ºC é ' + F + 'ºF.'
         }
+        
     </script>
     
 </body>
