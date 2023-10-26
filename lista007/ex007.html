@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 007</title>
+</head>
+
+<body>
+    <form action="">
+
+        <h1>Jogo das Capitais</h1>
+
+        <fieldset id="inicio">
+
+            <legend>Início</legend>
+            <p>Adicione até 4 jogadores</p>
+
+            <label for="iPlayer">Jogador: </label>
+            <input type="text" id="iPlayer">
+
+            <button type="button" onclick="adicionarPlayer()">Adicionar Jogador</button>
+            <button type="button" onclick="start()">Começar</button>
+
+        </fieldset>
+
+        <fieldset id="jogo" hidden="true">
+
+            <legend>Qual é a capital?</legend>
+            <h3 id="rodada">Rodada 1</h3>
+            <p id="labelVez">Vez de Jogador 1</p>
+
+            <label for="iEstado" id="labelEstado">estado</label>
+            <input type="text" id="iResposta">
+
+            <button type="button" onclick="enviar()">Enviar</button>
+            <button type="button" id="next" onclick="proximaRodada()" disabled>Próxima Rodada</button> <br> <br>
+
+            <output id="iOut"></output>
+        </fieldset>
+
+        <div id="pontuacoes">
+            <h2>Pontuações</h2>
+        </div>
+
+        <div id="vencedor" style="display: none;">
+            <h2>Vencedor:</h2>
+            <p id="nomeVencedor"></p>
+        </div>
+    </form>
+
+    <script>
+        let estados = [
+            "ACRE", "ALAGOAS", "AMAPÁ", "AMAZONAS", "BAHIA", "CEARÁ", "DISTRITO FEDERAL",
+            "ESPÍRITO SANTO", "GOIÁS", "MARANHÃO", "MATO GROSSO", "MATO GROSSO DO SUL",
+            "MINAS GERAIS", "PARÁ", "PARAÍBA", "PARANÁ", "PERNAMBUCO", "PIAUÍ", "RIO DE JANEIRO",
+            "RIO GRANDE DO NORTE", "RIO GRANDE DO SUL", "RONDÔNIA", "RORAIMA", "SANTA CATARINA",
+            "SÃO PAULO", "SERGIPE", "TOCANTINS"
+        ]
+
+        let capitais = [
+            "RIO BRANCO", "MACEIÓ", "MACAPÁ", "MANAUS", "SALVADOR", "FORTALEZA", "BRASÍLIA",
+            "VITÓRIA", "GOIÂNIA", "SÃO LUÍS", "CUIABÁ", "CAMPO GRANDE", "BELO HORIZONTE", "BELÉM",
+            "JOÃO PESSOA", "CURITIBA", "RECIFE", "TERESINA", "RIO DE JANEIRO", "NATAL", "PORTO ALEGRE",
+            "PORTO VELHO", "BOA VISTA", "FLORIANÓPOLIS", "SÃO PAULO", "ARACAJU", "PALMAS"
+        ]
+
+        let jogadores = []
+        let ptRodada = []
+        let turno = 0
+        let numRodada = 1
+        let jogoComecou = false
+        let randomNumber = 0
+        let jogadorStates = {}
+
+        function geraNumero() {
+            return parseInt(Math.random() * 27);
+        }
+
+        function adicionarPlayer() {
+            let inputPlayer = document.querySelector('#iPlayer');
+            jogadores.push(inputPlayer.value);
+            jogadorStates[inputPlayer.value] = { pontos: 0, rodada: 1 };
+            inputPlayer.value = "";
+            inputPlayer.focus();
+        }
+
+        function start() {
+            let inicio = document.querySelector('#inicio');
+            let jogo = document.querySelector('#jogo');
+            let out = document.querySelector('#iOut');
+            let labelVez = document.querySelector('#labelVez');
+
+            inicio.hidden = true;
+            jogo.hidden = false;
+
+            if (!jogoComecou) {
+                jogoComecou = true;
+                randomNumber = geraNumero();
+            }
+
+            labelVez.innerHTML = `Vez de <b>${jogadores[turno]}</b>`;
+            document.querySelector('#labelEstado').innerHTML = estados[randomNumber];
+            out.value = '';
+        }
+
+        function enviar() {
+            let resposta = document.querySelector('#iResposta').value.toUpperCase();
+            let out = document.querySelector('#iOut');
+            let jogadorAtual = jogadores[turno];
+
+            if (resposta === capitais[randomNumber]) {
+                out.value = 'Resposta Correta!';
+                jogadorStates[jogadorAtual].pontos++;
+            } else {
+                out.value = 'Resposta Errada!';
+            }
+
+            randomNumber = geraNumero();
+
+            atualizarPontuacoes();
+
+            document.querySelector('#next').disabled = false;
+        }
+
+        function proximaRodada() {
+            turno++;
+            if (turno >= jogadores.length) {
+                turno = 0;
+                numRodada++;
+                if (numRodada > 4) {
+                    mostrarVencedor();
+                    return;
+                }
+            }
+
+            document.querySelector('#iResposta').value = '';
+            document.querySelector('#next').disabled = true;
+            document.querySelector('#labelVez').innerHTML = `Vez de <b>${jogadores[turno]}</b>`;
+            document.querySelector('#rodada').innerHTML = `Rodada ${numRodada}`;
+            document.querySelector('#labelEstado').innerHTML = estados[randomNumber];
+
+            document.querySelector('#iOut').value = '';
+        }
+
+        function atualizarPontuacoes() {
+            // atualiza o elemento "pontuacoes" com as pontuações em tempo real
+            let pontuacoesElement = document.querySelector('#pontuacoes');
+            pontuacoesElement.innerHTML = '<h2>Pontuações em Tempo Real</h2>';
+
+            for (let jogador of jogadores) {
+                pontuacoesElement.innerHTML += `<p>${jogador}: ${jogadorStates[jogador].pontos} ponto(s)</p>`;
+            }
+        }
+
+        function mostrarVencedor() {
+            let vencedor = null;
+            let pontuacaoMaxima = -1;
+
+            for (let jogador of jogadores) {
+                if (jogadorStates[jogador].pontos > pontuacaoMaxima) {
+                    vencedor = jogador;
+                    pontuacaoMaxima = jogadorStates[jogador].pontos;
+                }
+            }
+
+            // mostra o vencedor
+            let vencedorElement = document.querySelector('#vencedor');
+            vencedorElement.style.display = 'block';
+            vencedorElement.querySelector('#nomeVencedor').textContent = vencedor;
+        }
+    </script>
+</body>
+
+</html>
