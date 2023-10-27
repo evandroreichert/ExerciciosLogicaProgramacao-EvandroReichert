@@ -28,41 +28,38 @@
 
         <output id="iOut"></output>
 
+    </form>
+    
+    <script>
 
-        <script>
+        let nomes = []
+        let sexo = []
+        let salarios = []
+        let mulherGanha5Mil = []
 
-            let nomes = []
-            let sexo = []
-            let salarios = []
-            let mulherGanha5Mil = []
+        let msg = ''
+        let out = document.querySelector('#iOut')
 
-            let msg = ''
-            let out = document.querySelector('#iOut')
-            
-            function checarDados() {
-                
-                let inputNome = document.querySelector('#iNome').value
-                let inputSexo = document.querySelector('input[type="radio"]:checked').value
-                let inputSalario = Number(document.querySelector('#iSalario').value)
+        function checarDados() {
 
-                nomes.push(inputNome)
-                sexo.push(inputSexo)
-                salarios.push(inputSalario)
+            let inputNome = document.querySelector('#iNome').value
+            let inputSexo = document.querySelector('input[type="radio"]:checked').value
+            let inputSalario = Number(document.querySelector('#iSalario').value)
 
-                if (inputSexo == 'F' && inputSalario >= 5000) {
-                    msg += `Nome: ${inputNome} | Salário: ${inputSalario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} \n`
-                }
+            nomes.push(inputNome)
+            sexo.push(inputSexo)
+            salarios.push(inputSalario)
 
-                out.innerText = msg
-
+            if (inputSexo == 'F' && inputSalario >= 5000) {
+                msg += `Nome: ${inputNome} | Salário: ${inputSalario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })} \n`
             }
 
-                
-        </script>
+            out.innerText = msg
+
+        }
 
 
-
-    </form>
+    </script>
 
 </body>
 
