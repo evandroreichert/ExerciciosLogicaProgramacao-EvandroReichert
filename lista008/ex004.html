@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 004</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        form {
+            max-width: 50%;
+            margin: auto;
+            padding: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="">
+
+        <h1 class="text-xl-center">Funcionários</h1>
+        <p class="text-xl-center">Mostra apenas mulheres com mais de 5 mil de salário.<p>
+
+        <div class="input-group">
+            <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+            <input type="text" id="iNome" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+
+        <div class="form-check form-check-inline p-3 m-2">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="F"
+                checked>
+            <label class="form-check-label" for="flexRadioDefault1">
+                Feminino
+            </label>
+        </div>
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" value="M">
+            <label class="form-check-label" for="flexRadioDefault2">
+                Masculino
+            </label>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">Salário R$</span>
+            <input type="number" id="iSalario" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default">
+        </div>
+
+        <div>
+            <button type="button" id="adiciona" class="btn btn-dark">Adicionar Pessoa</button>
+            <button type="button" id="calcula" class="btn btn-dark">Resultado</button>
+        </div>
+        <br> <br>
+
+        <output id="iOut"></output>
+
+    </form>
+
+    <script>
+
+        let msg = ''
+        let out = document.querySelector('#iOut')
+        let pessoas = []
+
+        let btnAdiciona = document.querySelector('#adiciona')
+        let btnCalcula = document.querySelector('#calcula')
+
+        btnAdiciona.addEventListener('click', () => {
+            let inputNome = document.querySelector('#iNome').value
+            let inputSexo = document.querySelector('input[type="radio"]:checked').value
+            let inputSalario = Number(document.querySelector('#iSalario').value)
+
+            let funcionarios = {
+                nome: inputNome,
+                sexo: inputSexo,
+                salario: inputSalario
+            }
+
+            pessoas.push(funcionarios)
+        })
+
+        btnCalcula.addEventListener('click', () => {
+            let inputNome = document.querySelector('#iNome').value
+            let inputSexo = document.querySelector('input[type="radio"]:checked').value
+            let inputSalario = Number(document.querySelector('#iSalario').value)
+
+            let funcionarios = {
+                nome: inputNome,
+                sexo: inputSexo,
+                salario: inputSalario
+            }
+            console.table(pessoas);
+
+            pessoas.filter((funcionario) => {
+                if (funcionario.sexo == 'F' && funcionario.salario >= 5000) {
+                    msg += `Nome: ${funcionario.nome} | Salário: ${funcionario.salario} \n`
+                }
+            })
+
+            out.innerText = msg
+        })
+
+
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
