@@ -20,6 +20,9 @@
 
     <form action="">
 
+        <h1 class="text-xl-center">Funcionários</h1>
+        <p class="text-xl-center">Mostra apenas mulheres com mais de 5 mil de salário.</p>
+
         <div class="input-group">
             <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
             <input type="text" id="iNome" class="form-control" aria-label="Sizing example input"
@@ -27,8 +30,9 @@
         </div>
 
 
-        <div class="form-check form-check-inline p-3">
-            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="F" checked>
+        <div class="form-check form-check-inline p-3 m-2">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="F"
+                checked>
             <label class="form-check-label" for="flexRadioDefault1">
                 Feminino
             </label>
@@ -63,12 +67,10 @@
         let out = document.querySelector('#iOut')
         let pessoas = []
 
+        let btnAdiciona = document.querySelector('#adiciona')
         let btnCalcula = document.querySelector('#calcula')
 
-        btnCalcula.addEventListener('click', checarDados)
-
-        function checarDados() {
-
+        btnAdiciona.addEventListener('click', () => {
             let inputNome = document.querySelector('#iNome').value
             let inputSexo = document.querySelector('input[type="radio"]:checked').value
             let inputSalario = Number(document.querySelector('#iSalario').value)
@@ -80,8 +82,18 @@
             }
 
             pessoas.push(funcionarios)
+        })
 
+        btnCalcula.addEventListener('click', () => {
+            let inputNome = document.querySelector('#iNome').value
+            let inputSexo = document.querySelector('input[type="radio"]:checked').value
+            let inputSalario = Number(document.querySelector('#iSalario').value)
 
+            let funcionarios = {
+                nome: inputNome,
+                sexo: inputSexo,
+                salario: inputSalario
+            }
             console.table(pessoas);
 
             pessoas.filter((funcionario) => {
@@ -91,8 +103,8 @@
             })
 
             out.innerText = msg
+        })
 
-        }
 
     </script>
 
